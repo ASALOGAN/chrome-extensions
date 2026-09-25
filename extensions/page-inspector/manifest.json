@@ -1,0 +1,24 @@
+{
+  "manifest_version": 3,
+  "name": "Page Inspector",
+  "version": "1.0.0",
+  "description": "A simple Chrome Extension for inspecting the current webpage.",
+
+  "permissions": ["activeTab"],
+
+  "background": {
+    "service_worker": "src/background.js"
+  },
+
+  "action": {
+    "default_title": "Page Inspector",
+    "default_popup": "src/popup.html"
+  },
+
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["src/content.js"]
+    }
+  ]
+}

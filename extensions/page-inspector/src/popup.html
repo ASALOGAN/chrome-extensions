@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Page Inspector</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+
+<body>
+  <main class="container">
+    <h1>Page Inspector</h1>
+
+    <button id="inspectButton">
+      Inspect Page
+    </button>
+
+    <div id="status"></div>
+
+    <section id="result" hidden>
+      <div class="info">
+        <span>Title</span>
+        <strong id="title"></strong>
+      </div>
+
+      <div class="info">
+        <span>Hostname</span>
+        <strong id="hostname"></strong>
+      </div>
+
+      <div class="info">
+        <span>Words</span>
+        <strong id="wordCount"></strong>
+      </div>
+
+      <div class="info">
+        <span>Links</span>
+        <strong id="links"></strong>
+      </div>
+
+      <div class="info">
+        <span>Images</span>
+        <strong id="images"></strong>
+      </div>
+    </section>
+  </main>
+
+  <script src="popup.js"></script>
+</body>
+</html>
