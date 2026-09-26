@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Edcite Login Assistant</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <main class="popup">
+    <div class="brand"><h1><span class="logo-green">Edcite</span> <span class="logo-orange">Login</span> <span class="logo-gold">Assistant</span></h1></div>
+
+    <section id="loginView">
+      <label for="environment">Server</label>
+      <select id="environment"></select>
+
+      <div id="accountGroup">
+        <label for="user">Account</label>
+        <select id="user"></select>
+      </div>
+      <div id="userIdGroup" hidden><label for="userId">User ID</label><select id="userId"></select></div>
+      <div id="redirectGroup" hidden>
+        <label for="redirect">Redirect <span>(optional)</span></label>
+        <select id="redirect"><option value="">No redirect</option></select>
+      </div>
+
+      <button id="loginButton" class="primary" type="button">Login</button>
+      <p id="status" role="status"></p>
+      <button id="manageAccountsButton" class="secondary" type="button">Manage accounts</button>
+      <button id="openDeleteButton" class="danger icon-button login-delete" type="button" aria-label="Delete server or user" title="Delete server or user">🗑</button>
+    </section>
+
+    <section id="manageView" hidden>
+      <div class="section-heading"><button id="backButton" class="back" type="button" aria-label="Back">←</button><h2>Manage accounts</h2></div>
+      <div class="tabs"><button id="accountsTab" class="tab active" type="button">Accounts</button><button id="redirectsTab" class="tab" type="button">Redirects</button><button id="deleteTab" class="tab" type="button">Delete</button></div>
+      <form id="accountForm">
+        <label for="manageServer">Select server</label>
+        <div class="select-action"><select id="manageServer" name="manageServer"></select><button id="deleteServerButton" class="danger icon-button" type="button" aria-label="Delete selected server" title="Delete selected server" hidden>🗑</button></div>
+        <div id="serverOr" class="server-or">or</div>
+        <button id="createServerButton" class="secondary" type="button">Add New Server</button>
+        <div id="createServerForm" hidden>
+          <input id="serverName" placeholder="Server name">
+          <input id="serverUrl" type="url" placeholder="Server URL">
+          <button id="saveServerButton" class="primary" type="button">Add New Server</button>
+        </div>
+        <div id="accountFields" hidden>
+          <select id="manageUser" hidden></select>
+          <button id="deleteUserButton" hidden type="button"></button>
+          <label for="accountType">Account type</label>
+          <select id="accountType" name="accountType" required>
+            <option>Admin</option><option>Teacher</option><option>Team</option><option>Student</option>
+          </select>
+          <input id="accountUsername" name="accountUsername" placeholder="User ID" required>
+          <div class="password-field"><input id="accountPassword" name="accountPassword" type="password" placeholder="Password" required><button id="togglePassword" class="eye-button" type="button" aria-label="Show password" title="Show password">◉</button></div>
+          <div id="redirectManager">
+            <label for="redirectInput">Add redirect for this server <span>(optional)</span></label>
+            <div class="select-action"><input id="redirectInput" placeholder="e.g. /getrtelist"><button id="addRedirectButton" class="secondary" type="button">Add</button></div>
+          </div>
+          <button id="deleteRedirectButton" hidden type="button"></button>
+          <label class="privacy-consent"><input id="credentialConsent" type="checkbox" required> I understand this credential is stored locally in Chrome on this device.</label>
+          <button class="primary" type="submit">Save account</button>
+        </div>
+      </form>
+      <section id="redirectsView" hidden>
+        <label for="redirectServer">Select server</label>
+        <select id="redirectServer"></select>
+        <input id="standaloneRedirect" placeholder="Redirect path, e.g. /getrtelist">
+        <button id="saveStandaloneRedirect" class="primary" type="button">Add redirect</button>
+        <label for="savedRedirects">Saved redirects</label>
+        <div class="select-action"><select id="savedRedirects"></select><button id="deleteStandaloneRedirect" class="danger icon-button" type="button" aria-label="Delete redirect" title="Delete redirect">🗑</button></div>
+      </section>
+      <section id="deleteView" hidden>
+        <label for="deleteServerSelect">Select server</label><select id="deleteServerSelect"></select>
+        <button id="deleteServerAction" class="danger" type="button">Delete server</button>
+        <label for="deleteTypeSelect">Select user type</label><select id="deleteTypeSelect"></select>
+        <label for="deleteUserSelect">Select user</label><select id="deleteUserSelect"></select>
+        <button id="deleteUserAction" class="danger" type="button">Delete user</button>
+      </section>
+    </section>
+
+  </main>
+
+  <script src="crypto.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>

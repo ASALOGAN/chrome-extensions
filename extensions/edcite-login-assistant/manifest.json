@@ -1,0 +1,29 @@
+{
+  "manifest_version": 3,
+  "name": "Edcite Login Assistant",
+  "version": "1.0.1",
+  "description": "Internal development login and navigation assistant for Edcite environments.",
+  "icons": {
+    "16": "icons/icon.png",
+    "48": "icons/icon.png",
+    "128": "icons/icon.png"
+  },
+  "permissions": ["scripting", "storage"],
+  "host_permissions": [
+    "http://*.edcite-dev.com/*",
+    "https://*.edcite-dev.com/*",
+    "http://*.edcite.com/*",
+    "https://*.edcite.com/*"
+  ],
+  "action": {
+    "default_title": "Edcite Login Assistant",
+    "default_icon": {
+      "16": "icons/icon.png",
+      "48": "icons/icon.png"
+    },
+    "default_popup": "src/popup.html"
+  },
+  "background": {
+    "service_worker": "src/background.js"
+  }
+}
